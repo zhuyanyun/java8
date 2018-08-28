@@ -14,12 +14,12 @@ import java.util.List;
  **/
 public class pattern {
 
-    List<Employee> employees = Arrays.asList(
-        new Employee("张三", 18, 3333.33),
-        new Employee("李四", 38, 5373.33),
-        new Employee("王五", 50, 15373.33),
-        new Employee("赵六", 25, 8373.33),
-        new Employee("田七", 14, 1373.33)
+       List<Employee> employees = Arrays.asList(
+            new Employee("张三", 18, 3333.33),
+            new Employee("李四", 38, 5373.33),
+            new Employee("王五", 50, 15373.33),
+            new Employee("赵六", 25, 8373.33),
+            new Employee("田七", 14, 1373.33)
     );
 
     @Test
