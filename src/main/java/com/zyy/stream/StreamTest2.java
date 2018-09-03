@@ -3,6 +3,7 @@ package com.zyy.stream;
 import com.zyy.strategy.Employee;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -86,5 +87,51 @@ public class StreamTest2 {
                 .distinct()
                 .forEach(System.out::println);
     }
+
+    /**
+     * 映射
+     *      map --接收Lambda,将元素转换成其他形式或提取信息。接收一个函数作为参数，该函数会被应用到每个元素上，
+     *      并将其映射成一个新的元素。
+     *      flatMap -- 接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流
+     *
+     */
+
+    @Test
+    public void test6(){
+        List<String> list = Arrays.asList("aaa", "bbb", "ccc");
+        list.stream()
+                .map((str) -> str.toUpperCase())
+                .forEach(System.out::println);
+
+
+        System.out.println("--------------------");
+        employees.stream()
+                .map(Employee::getName)
+                .forEach(System.out::println);
+
+        System.out.println("---------------------");
+
+//        Stream<Stream<Character>> stream = list.stream()
+//                .map(StreamTest2::filterCharater);
+//        stream.forEach((sm) -> sm.forEach(System.out::println));
+
+        System.out.println("-------------------");
+
+        Stream<Character> sm = list.stream()
+                .flatMap(StreamTest2::filterCharater);
+        sm.forEach(System.out::println);
+
+    }
+
+
+    public static Stream<Character> filterCharater(String str){
+        ArrayList<Character> list = new ArrayList<>();
+        for(Character ch : str.toCharArray()){
+            list.add(ch);
+        }
+
+        return list.stream();
+    }
+
 
 }
