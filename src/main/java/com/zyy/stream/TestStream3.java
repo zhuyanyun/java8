@@ -3,9 +3,8 @@ package com.zyy.stream;
 import com.zyy.strategy.Employee;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Description TODO
@@ -20,8 +19,142 @@ public class TestStream3 {
             new Employee("李四", 38, 5373.33, Employee.Status.FREE),
             new Employee("王五", 50, 15373.33, Employee.Status.VOCATION),
             new Employee("赵六", 25, 2373.33, Employee.Status.FREE),
+            new Employee("田七", 14, 8373.33, Employee.Status.BUSY),
             new Employee("田七", 14, 8373.33, Employee.Status.BUSY)
     );
+
+    /**
+     * 收集
+     * collect -- 将流转换为其他形式，接收一个Collector 接口的实现，用于给Stream 中元素做汇总的方法
+     */
+    @Test
+    public void test10(){
+        String str = employees.stream()
+                .map(Employee::getName)
+                .collect(Collectors.joining(","));
+        System.out.println(str);
+    }
+
+    @Test
+    public void test9(){
+        DoubleSummaryStatistics dss = employees.stream()
+                .collect(Collectors.summarizingDouble(Employee::getSalary));
+        System.out.println(dss.getMax());
+        System.out.println(dss.getAverage());
+        System.out.println(dss.getCount());
+    }
+
+    //分区
+    @Test
+    public void test8(){
+        Map<Boolean, List<Employee>> map = employees.stream()
+                .collect(Collectors.partitioningBy((e) -> e.getSalary() > 8000));
+        System.out.println(map);
+    }
+
+    //多级分组
+    @Test
+    public void test7(){
+        Map<Employee.Status, Map<String, List<Employee>>> statusMapMap = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getStstus, Collectors.groupingBy((e) -> {
+                    if (((Employee) e).getAge() <= 35) {
+                        return "青年";
+                    } else if (((Employee) e).getAge() <= 50) {
+                        return "中年";
+                    } else {
+                        return "老年";
+                    }
+                })));
+
+        System.out.println(statusMapMap);
+    }
+
+    //分组
+    @Test
+    public void test6(){
+        Map<Employee.Status, List<Employee>> map = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getStstus));
+        System.out.println(map);
+    }
+
+    @Test
+    public void test5(){
+        //总数
+        Long count = employees.stream()
+                .collect(Collectors.counting());
+        System.out.println(count);
+
+        //平均值
+        Double avg = employees.stream()
+                .collect(Collectors.averagingDouble(Employee::getSalary));
+        System.out.println(avg);
+
+        //总和
+        Double sum = employees.stream()
+                .collect(Collectors.summingDouble(Employee::getSalary));
+        System.out.println(sum);
+
+        //最大值对象
+        Optional<Employee> max = employees.stream()
+                .collect(Collectors.maxBy((e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary())));
+        System.out.println(max.get());
+
+        Optional<Double> min = employees.stream()
+                .map(Employee::getSalary)
+                .collect(Collectors.minBy(Double::compare));
+        System.out.println(min.get());
+    }
+
+    @Test
+    public void test4(){
+        List<String> list = employees.stream()
+                .map(Employee::getName)
+                .collect(Collectors.toList());
+
+        list.forEach(System.out::println);
+
+        System.out.println("----------------");
+
+        Set<String> set = employees.stream()
+                .map(Employee::getName)
+                .collect(Collectors.toSet());
+
+        set.forEach(System.out::println);
+
+        System.out.println("------------------");
+
+        HashSet<String> hs = employees.stream()
+                .map(Employee::getName)
+                .collect(Collectors.toCollection(HashSet::new));
+        hs.forEach(System.out::println);
+    }
+
+    /**
+     * TODO
+     * reduce(T identity,BinaryOperator)/ reduce(BinaryOperator)
+     *          -- 可以将流中元素反复结合起来，得到一个值
+     */
+
+    @Test
+    public void test3(){
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+
+        Integer sum = list.stream()
+                .reduce(0, (x, y) -> x + y);
+
+        System.out.println(sum);
+
+        System.out.println("------------------");
+
+        Optional<Double> op = employees.stream()
+                .map(Employee::getSalary)
+                .reduce(Double::sum);
+        System.out.println(op.get());
+
+        System.out.println("__________________");
+
+
+    }
 
     /**
      * TODO 查找和匹配
