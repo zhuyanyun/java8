@@ -12,6 +12,15 @@ public class Employee {
     private String name;
     private Integer age;
     private Double salary;
+    private Status ststus;
+
+    public Status getStstus() {
+        return ststus;
+    }
+
+    public void setStstus(Status ststus) {
+        this.ststus = ststus;
+    }
 
     public Employee(){}
 
@@ -22,6 +31,13 @@ public class Employee {
     public Employee(Integer age, String name){
         this.age = age;
         this.name = name;
+    }
+
+    public Employee(String name, Integer age, Double salary, Status ststus) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.ststus = ststus;
     }
 
     public Employee(String name, Integer age, Double salary) {
@@ -55,27 +71,35 @@ public class Employee {
     }
 
     @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
         return Objects.equals(name, employee.name) &&
                 Objects.equals(age, employee.age) &&
-                Objects.equals(salary, employee.salary);
+                Objects.equals(salary, employee.salary) &&
+                ststus == employee.ststus;
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(name, age, salary);
+        return Objects.hash(name, age, salary, ststus);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                ", ststus=" + ststus +
+                '}';
+    }
+
+    public enum Status{
+        FREE,
+        BUSY,
+        VOCATION;
     }
 }
