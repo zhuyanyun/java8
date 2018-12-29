@@ -21,7 +21,7 @@ public class StrBM {
         }
     }
 
-    //b模式串， m 模式串长度    bc 散列表
+    //a主串    b模式串， m 模式串长度    bc 散列表
     public int bm(char[] a, int n, char[] b, int m) {
         int[] bc = new int[SIZE]; // 记录模式串中每个字符最后出现的位置
         generateBC(b, m, bc); // 构建坏字符哈希表
@@ -41,10 +41,10 @@ public class StrBM {
     }
 
     public static void main(String[] args) {
-        String s ="bccbdrt";
-        String m ="dbc";
+        String a ="bccbdrt";
+        String b ="dbc";
         StrBM strBM = new StrBM();
-        strBM.bm(s.toCharArray(),7,m.toCharArray(),3);
+        strBM.bm(a.toCharArray(),7,b.toCharArray(),3);
     }
 
 //    // b 表示模式串，m 表示长度，suffix，prefix 数组事先申请好了
