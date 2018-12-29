@@ -24,7 +24,6 @@ public class Trie {
             p = p.children[index];
         }
         p.isEndingChar = true;
-        System.out.println(JSON.toJSON(p));
     }
 
     // 在 Trie 树中查找一个字符串
@@ -44,6 +43,7 @@ public class Trie {
     public class TrieNode {
         public char data;
         public TrieNode[] children = new TrieNode[26];
+        //是否是叶子节点
         public boolean isEndingChar = false;
         public TrieNode(char data) {
             this.data = data;
@@ -52,13 +52,14 @@ public class Trie {
 
     public static void main(String[] args) {
         Trie trie = new Trie();
-        String s = "ab";
-        String b = "ac";
+        String s = "abt";
+        String b = "aby";
 //        String c = "bc";
         trie.insert(s.toCharArray());
         trie.insert(b.toCharArray());
 //        trie.insert(c.toCharArray());
-
+        boolean b1 = trie.find("abt".toCharArray());
+        System.out.println(b1);
     }
 }
 
