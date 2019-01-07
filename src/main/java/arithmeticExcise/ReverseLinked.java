@@ -14,18 +14,19 @@ public class ReverseLinked {
         ListNode(int x) { val = x; }
     }
 
-    public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-
-        while (curr != null){
-            ListNode nextTemp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = nextTemp;
-        }
-        return prev;
-    }
+    //5431
+//    public ListNode reverseList(ListNode head) {
+//        ListNode prev = null;
+//        ListNode curr = head;
+//
+//        while (curr != null){
+//            ListNode nextTemp = curr.next;
+//            curr.next = prev;
+//            prev = curr;
+//            curr = nextTemp;
+//        }
+//        return prev;
+//    }
 
 //    public static void main(String[] args) {
 //        ReverseLinked reverseLinked = new ReverseLinked();
