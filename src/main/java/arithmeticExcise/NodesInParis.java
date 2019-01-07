@@ -8,19 +8,26 @@ package arithmeticExcise;
  **/
 public class NodesInParis {
 
-    class ListNode{
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
+    private static Node head = null;
+
+    public Node addNode(Node node){
+        Node temp = head;
+
+        while(temp.next != null){
+            temp = temp.next;
+        }
+
+        temp.next = node;
+        return temp;
     }
 
-    public ListNode swapPairs(ListNode head) {
-        ListNode node = new ListNode(0); // 头结点
+    public Node swapPairs(Node head) {
+        Node node = new Node(0); // 头结点
         node.next = head;
 
         // p指向新的链表的尾结点
-        ListNode p = node;
-        ListNode tmp;
+        Node p = node;
+        Node tmp;
 
         // 每两个进行操作
         while (p.next != null && p.next.next != null) {
@@ -38,6 +45,15 @@ public class NodesInParis {
         node.next = null;
 
         return head;
+    }
+
+    public static void main(String[] args) {
+        NodesInParis nodes = new NodesInParis();
+        nodes.addNode(new Node(3));
+        nodes.addNode(new Node(2));
+        nodes.addNode(new Node(4));
+        Node nodds = nodes.addNode(new Node(1));
+        nodes.swapPairs(nodds);
     }
 
 
