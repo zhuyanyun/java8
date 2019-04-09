@@ -8,16 +8,12 @@ package arithmeticExcise;
  **/
 public class NodesInParis {
 
-    private static Node head = null;
+    private static Node temp;
 
     public Node addNode(Node node){
-        Node temp = head;
-
         while(temp.next != null){
-            temp = temp.next;
+            temp.next = node;
         }
-
-        temp.next = node;
         return temp;
     }
 

@@ -189,19 +189,29 @@ under the License.
       <url>http://192.168.0.222:8081/nexus/content/groups/public/</url>
     </mirror>
 
+    <!-- 阿里云仓库 -->
     <mirror>
-      <id>alimaven</id>
-      <name>aliyun maven</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-     <mirrorOf>central</mirrorOf>
+        <id>alimaven</id>
+        <mirrorOf>central</mirrorOf>
+        <name>aliyun maven</name>
+        <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
     </mirror>
 
- <!--    <mirror>
-      <id>jbmaven</id>
-      <name>Jboss Central</name>
-      <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-      <mirrorOf>central</mirrorOf>
-    </mirror>  -->
+    <!-- 中央仓库1 -->
+    <mirror>
+        <id>repo1</id>
+        <mirrorOf>central</mirrorOf>
+        <name>Human Readable Name for this Mirror.</name>
+        <url>http://repo1.maven.org/maven2/</url>
+    </mirror>
+
+    <!-- 中央仓库2 -->
+    <mirror>
+        <id>repo2</id>
+        <mirrorOf>central</mirrorOf>
+        <name>Human Readable Name for this Mirror.</name>
+        <url>http://repo2.maven.org/maven2/</url>
+    </mirror>
 
   </mirrors>
 
@@ -361,8 +371,8 @@ under the License.
     <activeProfile>anotherAlwaysActiveProfile</activeProfile>
   </activeProfiles>
   -->
-  <!-- <activeProfiles>
+  <activeProfiles>
     <activeProfile>nexus</activeProfile>
-  </activeProfiles> -->
+  </activeProfiles>
 </settings>
 
