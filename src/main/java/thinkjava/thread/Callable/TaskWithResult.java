@@ -18,7 +18,7 @@ public class TaskWithResult implements Callable<String> {
 
 
     @Override
-    public String call() throws Exception {
+    public String call() {
         return "result of TaskWithResult" + id ;
     }
 }
