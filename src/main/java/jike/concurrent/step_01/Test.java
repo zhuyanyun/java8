@@ -12,7 +12,7 @@ public class Test {
 
     private void add10K() {
         int idx = 0;
-        while(idx++ < 50000) {
+        while(idx++ < 100000) {
             count += 1;
         }
         System.out.println("&&&" + count);
@@ -33,6 +33,14 @@ public class Test {
         // 等待两个线程执行结束
         th1.join();
         th2.join();
+        System.out.println("{}" + count);
         return count;
     }
+
+    public static void main(String[] args) throws Exception {
+        Test test = new Test();
+        long calc = test.calc();
+
+        System.out.println("=====:{}" + calc );
+    };
 }
