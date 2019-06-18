@@ -35,6 +35,8 @@ public class Account {
                     this.lock.unlock();
                 }
             }//if
+            // 新增：sleep 一个随机时间避免活锁 Th...
+            Thread.sleep(3);
         }//while
     }//transfer
 }
