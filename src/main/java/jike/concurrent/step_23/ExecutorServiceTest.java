@@ -28,7 +28,7 @@ public class ExecutorServiceTest {
             public void run() {
                 // 可以操作 result
                 String a = r.getA();
-                r.setX(a);
+                r.setX(a+"+++++");
             }
         }
 
@@ -40,7 +40,10 @@ public class ExecutorServiceTest {
         // 提交任务
         Future<ResultTer> future =
                 executor.submit(new Task2(r), r);
+
         ResultTer fr = future.get();
+        System.out.println("======"+fr.getX());
+
         // 下面等式成立
 //        fr = r;
 //        fr.getA() = a;

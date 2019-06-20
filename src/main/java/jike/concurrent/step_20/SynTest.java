@@ -17,6 +17,6 @@ public class SynTest {
 
     public static void main(String[] args) {
         List<Object> list = Collections.synchronizedList(new ArrayList<>());
-        Vector<Object> objects = new Vector<>();
+        new Vector<>();
     }
 }
