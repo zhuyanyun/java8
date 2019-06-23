@@ -12,6 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class X {
 
         private final Lock rtl = new ReentrantLock();
+
         int value;
         public void addOne() {
             // 获取锁

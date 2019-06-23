@@ -31,6 +31,7 @@ public class FutureTaskTest2 {
                 System.out.println("T1: 烧开水...");
                 TimeUnit.SECONDS.sleep(15);
                 // 获取 T2 线程的茶叶
+                System.out.println("===========开始等待T2的结果");
                 String tf = ft2.get();
                 System.out.println("T1: 拿到茶叶:" + tf);
 
@@ -68,6 +69,7 @@ public class FutureTaskTest2 {
         T1.start();
         // 线程 T2 执行任务 ft2
         Thread T2 = new Thread(ft2);
+        Thread.sleep(20000);
         T2.start();
          // 等待线程 T1 执行结果
         System.out.println("====="+ft1.get());

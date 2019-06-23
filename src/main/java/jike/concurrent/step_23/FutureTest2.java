@@ -1,6 +1,6 @@
 package jike.concurrent.step_23;
 
-import jike.concurrent.setp_22.ReNameThreadFactory;
+import jike.concurrent.step_22.ReNameThreadFactory;
 
 import java.util.concurrent.*;
 

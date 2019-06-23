@@ -1,4 +1,4 @@
-package jike.concurrent.setp_22;
+package jike.concurrent.step_22;
 
 /**
  * @Description TODO
