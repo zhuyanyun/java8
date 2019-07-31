@@ -36,39 +36,39 @@ public class ObjPool<T,R>  {
             pool.add(t);
             sem.release();
         }
+
     }
 
     public static void main(String[] args) throws InterruptedException {
         // 创建对象池
-        ObjPool<Long, String> pool = new ObjPool<Long, String>(10, 2L);
+        ObjPool<Integer, Integer> pool = new ObjPool<Integer, Integer>(4, 2222);
         // 通过对象池获取 t，之后执行
 //        pool.exec(t -> {
 //            System.out.println(t);
 //            return t.toString();
 //        });
 
-
-
         for(int i =0; i< 5;i++){
-            new Thread(new Runnable() {
+            Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
                         pool.exec(t -> {
-                            System.out.println(t);
-//                            try {
+                            System.out.println(t.toString());
+                            try {
                                 System.out.println("=====");
-//                                Thread.sleep(5000);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
-                            return t.toString();
+                                Thread.sleep(5000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            return t;
                         });
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             });
+            thread.start();
         }
     }
 }

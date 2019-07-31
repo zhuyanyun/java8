@@ -1,6 +1,7 @@
 //package jike.concurrent.step_19;
 //
 //import java.util.Vector;
+//import java.util.concurrent.BrokenBarrierException;
 //import java.util.concurrent.CyclicBarrier;
 //import java.util.concurrent.Executor;
 //import java.util.concurrent.Executors;
@@ -30,29 +31,43 @@
 //        P p = pos.remove(0);
 //        D d = dos.remove(0);
 //        // 执行对账操作
-//        diff = check(p, d);
+////        diff = check(p, d);
+//        System.out.println("======");
 //        // 差异写入差异库
-//        save(diff);
+//        System.out.println("888888");
+////        save(diff);
 //    }
 //
 //    void checkAll() {
 //        // 循环查询订单库
 //        Thread T1 = new Thread(() -> {
-//            while (存在未对账订单) {
+//            while (true) {
 //                // 查询订单库
-//                pos.add(getPOrders());
+//                pos.add(P);
 //                // 等待
-//                barrier.await();
+//                try {
+//                    barrier.await();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (BrokenBarrierException e) {
+//                    e.printStackTrace();
+//                }
 //            }
 //        });
 //        T1.start();
 //        // 循环查询运单库
 //        Thread T2 = new Thread(() -> {
-//            while (存在未对账订单) {
+//            while (true) {
 //                // 查询运单库
-//                dos.add(getDOrders());
+//                dos.add();
 //                // 等待
-//                barrier.await();
+//                try {
+//                    barrier.await();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (BrokenBarrierException e) {
+//                    e.printStackTrace();
+//                }
 //            }
 //        });
 //        T2.start();

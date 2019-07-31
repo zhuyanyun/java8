@@ -15,7 +15,7 @@
 //    // 创建 2 个线程的线程池
 //    Executor executor =
 //            Executors.newFixedThreadPool(2);
-//    while(存在未对账订单){
+//    while(true){
 //        // 计数器初始化为 2
 //        CountDownLatch latch = new CountDownLatch(2);
 //        // 查询未对账订单

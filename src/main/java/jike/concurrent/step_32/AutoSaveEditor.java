@@ -39,5 +39,9 @@ public class AutoSaveEditor {
             changed = true;
         }
 
+    public static void main(String[] args) {
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
+    }
+
 
 }

@@ -1,7 +1,9 @@
 //package jike.concurrent.step_33;
 //
+//
 //import com.sun.xml.internal.ws.api.pipe.Fiber;
 //
+//import java.io.IOException;
 //import java.io.UncheckedIOException;
 //import java.net.InetSocketAddress;
 //import java.nio.ByteBuffer;
@@ -22,7 +24,7 @@
 //    try{
 //        while (true) {
 //            // 接收请求
-//            final SocketChannel sc = serverSocketChannel.accept();
+//            final SocketChannel sc = ssc.accept();
 //            Fiber.schedule(()->{
 //                try {
 //                    // 读 Socket
@@ -46,5 +48,6 @@
 //    }
 //
 //
-//
+//    public Socker() throws IOException {
+//    }
 //}
