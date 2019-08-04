@@ -15,7 +15,7 @@ public final  class Router {
     // 路由信息
     private final String  ip;
     private final Integer port;
-    private  final String  iface;
+    private final String  iface;
     // 构造函数
     public Router(String ip,
                   Integer port, String iface){

@@ -10,13 +10,12 @@ import java.util.concurrent.atomic.AtomicLong;
  **/
 public class ThreadId {
 
-        static final AtomicLong
-                nextId=new AtomicLong(0);
+        static final AtomicLong nextId=new AtomicLong(0);
         // 定义 ThreadLocal 变量
-        static final ThreadLocal<Long>
-                tl=ThreadLocal.withInitial(()->nextId.getAndIncrement());
+        static final ThreadLocal<Long> tl=ThreadLocal.withInitial(()->nextId.getAndIncrement());
         // 此方法会为每个线程分配一个唯一的 Id
         static long get(){
-            return tl.get();
+
+                return tl.get();
         }
 }
