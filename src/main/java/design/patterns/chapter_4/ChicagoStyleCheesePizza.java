@@ -8,16 +8,16 @@ package design.patterns.chapter_4;
  **/
 public class ChicagoStyleCheesePizza extends Pizza {
 
-    public ChicagoStyleCheesePizza() {
-        name = "Chicago Style Deep and Cheese Pizza";
-        dough = "Extra Thick Crust Dough";
-        sauce = "Plum Tomato Sauce";
-
-        toppings.add("Sharedded Morra  Cheese");
-    }
-
-    @Override
-    void cut() {
-        System.out.println("Cutting the pizza into square slices");
-    }
+//    public ChicagoStyleCheesePizza() {
+//        name = "Chicago Style Deep and Cheese Pizza";
+//        dough = "Extra Thick Crust Dough";
+//        sauce = "Plum Tomato Sauce";
+//
+//        toppings.add("Sharedded Morra  Cheese");
+//    }
+//
+//    @Override
+//    void cut() {
+//        System.out.println("Cutting the pizza into square slices");
+//    }
 }

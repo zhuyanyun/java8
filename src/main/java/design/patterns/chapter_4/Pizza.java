@@ -11,8 +11,9 @@ import java.util.ArrayList;
 public abstract class Pizza {
 
     String name;
-    String dough;
-    String sauce;
+    Dough dough;
+    Sauce sauce;
+
     ArrayList toppings = new ArrayList<>();
 
     void prepare(){
@@ -39,5 +40,9 @@ public abstract class Pizza {
 
     public String getName(){
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
