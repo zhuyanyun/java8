@@ -8,6 +8,10 @@ package design.patterns.chapter_6;
  **/
 public class Light {
 
+    public Light() {
+
+    }
+
     public void on (){
         System.out.println("light on");
     }
