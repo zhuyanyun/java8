@@ -20,4 +20,9 @@ public class StereOnWithCDCommand implements Command {
         stereo.setCD("luo da you");
         stereo.setVolume(11);
     }
+
+    @Override
+    public void undo() {
+
+    }
 }
