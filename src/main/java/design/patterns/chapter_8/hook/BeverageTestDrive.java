@@ -1,5 +1,8 @@
 package design.patterns.chapter_8.hook;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * @Description TODO
  * @Author zhuyanyun
@@ -14,5 +17,8 @@ public class BeverageTestDrive {
 
         System.out.println("Making coffer+++++");
         coffeeWithHook.pripareRecipe();
+
+        Object obj[] = new Object[]{};
+//        Arrays.sort();
     }
 }
