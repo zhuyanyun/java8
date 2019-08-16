@@ -56,11 +56,13 @@ public class Test {
 //        i = (int)lg2;
 
 
-          double d = 0.7D;
-          double  d2 = 0.3D;
-        System.out.println((int)d);
-        System.out.println(Math.round(d));
-        System.out.println(Math.round(d2));
-
+//          double d = 0.7D;
+//          double  d2 = 0.3D;
+//        System.out.println((int)d);
+//        System.out.println(Math.round(d));
+//        System.out.println(Math.round(d2));
+        int big = Integer.MAX_VALUE;
+        int bigger = big * 4;
+        System.out.println("bigger:" + bigger);
     }
 }
