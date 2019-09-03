@@ -1,5 +1,5 @@
 //: generics/coffee/Coffee.java
-package generics.coffee;
+package thinkjava.chapter_15.fanxing;
 
 public class Coffee {
   private static long counter = 0;

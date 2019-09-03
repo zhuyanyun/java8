@@ -1,5 +1,6 @@
 //: generics/coffee/Latte.java
-package generics.coffee;
+package thinkjava.chapter_15.fanxing;
+
 public class Latte extends Coffee {
 
 } ///:~
